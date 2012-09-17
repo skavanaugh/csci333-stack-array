@@ -17,7 +17,6 @@ void Stack::push(int value) {
   // copy all elements to new stack
   // delete old stack
   // point old stack pointer to new stack
-//  if (size() < (sizeof(theStack)/sizeof(int))) {
 
   if (size() >= arraySize) {
     int* newStack = new int[2*arraySize];
@@ -30,7 +29,6 @@ void Stack::push(int value) {
   }
   theStack[top] = value;
   top++;
-//  std::cout<<arraySize<<std::endl;
 }
 
 int Stack::pop() {
