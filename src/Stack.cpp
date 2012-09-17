@@ -4,6 +4,7 @@
 Stack::Stack(int initialSize) {
   theStack = new int[initialSize];
   top = 0;
+  arraySize = initialSize;
 }
 
 Stack::~Stack() {
@@ -16,8 +17,20 @@ void Stack::push(int value) {
   // copy all elements to new stack
   // delete old stack
   // point old stack pointer to new stack
+//  if (size() < (sizeof(theStack)/sizeof(int))) {
+
+  if (size() >= arraySize) {
+    int* newStack = new int[2*arraySize];
+    for (int i = 0; i < size(); i++) {
+      newStack[i]=theStack[i];
+    }
+    delete[] theStack;
+    theStack = newStack;
+    arraySize = 2*arraySize;   
+  }
   theStack[top] = value;
   top++;
+//  std::cout<<arraySize<<std::endl;
 }
 
 int Stack::pop() {

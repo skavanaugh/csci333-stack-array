@@ -5,6 +5,7 @@ class Stack {
  private:
   int* theStack;
   int top;
+  int arraySize;
 
  public:
   Stack(int initialSize = 10);
